@@ -3,7 +3,7 @@ from datetime import time
 def test_time_for_dark(): # включение темной темы, если позже 10 вечера и раньше 6 утра
     current_hour = time(hour=0)
     is_dark_theme = None
-    if current_hour.hour>=22 or current_hour.hour<=6:
+    if current_hour.hour>=22 or current_hour.hour<6:
         is_dark_theme = True
     else:
         is_dark_theme = False
@@ -12,14 +12,14 @@ def test_time_for_dark(): # включение темной темы, если �
 
 def test_user_choose_theme(): #включение темной темы по желанию пользователя
     current_hour = time(hour=16)
-    #no_sleep = (current_hour.(hour>=22) or current_hour.(hour<=6))
+    #no_sleep = (current_hour.(hour>=22) or current_hour.(hour<6))
     is_dark_theme = None
     dark_theme_enabled_by_user = True
 
     if dark_theme_enabled_by_user is not None:
         is_dark_theme = dark_theme_enabled_by_user
     else:
-         is_dark_theme = current_hour.hour>=22 or current_hour.hour<=6
+         is_dark_theme = current_hour.hour>=22 or current_hour.hour<6
 
     assert is_dark_theme is True
 
